@@ -12,10 +12,11 @@ def connector_parameters():
         user = data['SNOWFLAKE'][1]['USER']
         password = data['SNOWFLAKE'][2]['PASSWORD']
     except:
-        st.header('Enter Snowflake Credentials')
-        account = st.text_input('Enter Account Identifier')
-        user = st.text_input('Enter Username')
-        password = st.text_input('Enter Password',type='password')
+        # st.header('Enter Snowflake Credentials')
+        # account = st.text_input('Enter Account Identifier')
+        # user = st.text_input('Enter Username')
+        # password = st.text_input('Enter Password',type='password')
+        pass
     
     if account != '' and user != '' and password != '':
         conn = {
@@ -31,5 +32,5 @@ def create_session():
     conn = connector_parameters()
     if conn is not None:
         session = Session.builder.configs(conn).create()
-        st.success('Snowflake Connection Successful')
+        # st.success('Snowflake Connection Successful')
         return session

@@ -6,7 +6,7 @@ import re
 from pathlib import Path
 from jinja2 import Template
 
-st.title('Spotify Playlist Tracker')
+# st.title('Spotify Playlist Tracker')
 
 def get_playlist_name(playlist_id):
     playlist_name = spot_con.get_playlist_name(sp, playlist_id)

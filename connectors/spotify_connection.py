@@ -15,12 +15,13 @@ def create_spotify_connection():
         client_id = data['SPOTIFY'][0]['CLIENT_ID']
         client_secret = data['SPOTIFY'][1]['CLIENT_SECRET']
     except:
-        st.header('Enter Spotify Details')
-        client_id = st.text_input('Client Id')
-        client_secret = st.text_input('Client Secret',type='password')
+        # st.header('Enter Spotify Details')
+        # client_id = st.text_input('Client Id')
+        # client_secret = st.text_input('Client Secret',type='password')
+        pass
     if client_id != '' and client_secret != '':
         sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id, client_secret))
-        st.success('Spotify Connection Successful')
+        # st.success('Spotify Connection Successful')
         return sp
 
 # Function to get playlist name from a playlist
