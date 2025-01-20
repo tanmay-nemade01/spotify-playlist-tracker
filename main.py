@@ -30,7 +30,7 @@ session  = snow_con.create_session()
 sp = spot_con.create_spotify_connection()
 
 
-playlist_id = st.text_input('Enter a playlist id to track')
+playlist_id = '0lcGUwmkwQfCEnbdz5h2z0'
 if playlist_id != '':
     playlist_name = get_playlist_name(playlist_id)
     playlist_table = get_playlist_table(playlist_id)
