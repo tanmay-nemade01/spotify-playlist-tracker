@@ -9,13 +9,19 @@ from pathlib import Path
 # Authenticate with Spotify API
 def create_spotify_connection():
     spotify_json = Path(__file__).parent.parent / "configs" / "spotify.json"
-    with open(spotify_json, 'r') as file:
-        data = json.load(file)
-    client_id = data['SPOTIFY'][0]['CLIENT_ID']
-    client_secret = data['SPOTIFY'][1]['CLIENT_SECRET']
-    sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id, client_secret))
-    print('Spotify Connection Successful')
-    return sp
+    try:
+        with open(spotify_json, 'r') as file:
+            data = json.load(file)
+        client_id = data['SPOTIFY'][0]['CLIENT_ID']
+        client_secret = data['SPOTIFY'][1]['CLIENT_SECRET']
+    except:
+        st.header('Enter Spotify Details')
+        client_id = st.text_input('Client Id')
+        client_secret = st.text_input('Client Secret',type='password')
+    if client_id != '' and client_secret != '':
+        sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id, client_secret))
+        st.success('Spotify Connection Successful')
+        return sp
 
 # Function to get playlist name from a playlist
 def get_playlist_name(sp, playlist_id):
