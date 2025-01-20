@@ -48,6 +48,5 @@ for query in queries:
     result = session.sql(query).collect()
 
 df = session.table(playlist_name).collect()
-df
 
 
