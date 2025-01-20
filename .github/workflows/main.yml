@@ -2,7 +2,7 @@ name: Daily Spotify ETL
 on:
   schedule:
     - cron: "0 0 * * *"  # Runs every day at midnight UTC
-
+  workflow_dispatch:  # Allows manual triggering
 jobs:
   run_script:
     runs-on: ubuntu-latest
