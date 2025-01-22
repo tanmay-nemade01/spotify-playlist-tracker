@@ -2,3 +2,5 @@
 .cache
 connectors/__pycache__/snowflake_connection.cpython-310.pyc
 connectors/__pycache__/spotify_connection.cpython-310.pyc
+configs/spotify.json
+configs/snowflake.json
